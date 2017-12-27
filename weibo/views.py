@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpResponse
 from .forms import SuggestForm,ReviewForm,UserForm,Input_UserForm
@@ -10,31 +11,30 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def get_queryset(request):
-	#查询所有字段
 	article=Article.objects.all()
-	#将字段分为3段/页
+
 	article_list=Paginator(article,5)
-	#获取模板中发送的页面数字
+
 	article_number=request.GET.get("num")
 
 	try:
-		#将页面跳转至接收到的数字的页面
+
 		article_list1=article_list.page(article_number)
-		#如果页面超出取值范围，则跳转到最后一页
+
 	except EmptyPage:
 		article_list1=article_list.page(article_list.num_pages)
-		#如果页面输入的不是整数，则跳转到第一页
+
 	except PageNotAnInteger:
 		article_list1=article_list.page(1)
 	return render(request,'weibo/index.html',{'article_list' : article_list1})
 
 def boke(request,article_id):
-	#传递建议表单，查询数据库建议集，接收文章id查询该文章
+
 	form=ReviewForm()
 	suggest=Review.objects.filter(article_id=article_id)
 	number=len(suggest)
 	boke=get_object_or_404(Article,pk=article_id)
-	#建议分页
+
 	boke.views=boke.views+1
 	boke.save()
 	suggest_list=Paginator(suggest,3)
