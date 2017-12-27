@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'au706x*pt_vlmb#w6aaicyw5^fej%m!ti!x)jfr!1g7ya9-^3i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False#开启调试
+DEBUG = False #开启调试
 
 ALLOWED_HOSTS = ['127.0.0.1','119.23.41.28', 'localhost ', '.liangwei.com']
 
