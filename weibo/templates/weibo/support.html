@@ -1,0 +1,58 @@
+{% extends "weibo/index.html" %}
+{% load staticfiles %}
+      {% block title %}
+      <ul>
+        <li><a href="{% url 'weibo:queryset' %}">主页</a></li>
+        <li class="active"><a href="{% url 'weibo:denglu' %}">登录</a></li>
+        <li><a href="{% url 'weibo:we' %}">关于本网站</a></li>
+        <li><a href="{% url 'weibo:liuyan' %}">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="clr"></div>
+  </div>
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"><h1><a href="index.html">Welcome My Blog</a></h1></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+           <h2>账号注册：</h2>
+          <form action="{% url 'weibo:zhuce1' %}" method="post">
+            {% csrf_token %}
+          <ol><li>
+            {{ form.username.errors }}
+            {{ form.username.label_tag }}
+            {{ form.username }}
+          </li><li>
+            {{ form.user.errors }}
+            {{ form.user.label_tag }}
+            {{ form.user }}
+            </li><li>
+            {{ form.password.errors }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
+          </li><li>
+            {{ form.egan_password.errors }}
+            {{ form.egan_password.label_tag }}
+            {{ form.egan_password }}
+          </li><li>
+           {{ form.email.errors }}
+            {{ form.email.label_tag }}
+            {{ form.email }}
+          </li><li>
+            <br>
+            <input type="submit" value="注册" />
+          </br>
+            <div class="clr"></div>
+          </li></ol>
+          </form>
+        </div>
+      </div>
+      {% endblock %}
+
+     

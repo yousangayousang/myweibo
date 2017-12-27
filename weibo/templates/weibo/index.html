@@ -1,0 +1,139 @@
+{% load staticfiles %}
+<!--
+Design by http://www.cssmoban.com
+Released for free under a Creative Commons Attribution 3.0 License
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+<script type="text/javascript" src="{%　static 'js/cufon-yui.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/arial.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/cuf_run.js' %}"></script>
+<!-- CuFon ends -->
+</head>
+<body>
+<div class="main">
+
+  <div class="menu_nav">
+    <div class="menu_nav_resize">
+      {% block title %}
+      <ul>
+        <li class="active"><a href="{% url 'weibo:queryset' %}">主页</a></li>
+        <li><a href="{% url 'weibo:denglu' %}">登录</a></li>
+        <li><a href="{% url 'weibo:we' %}">关于本网站</a></li>
+        <li><a href="{% url 'weibo:liuyan' %}">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="clr"></div>
+  </div>
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"><h1><a href="index.html">Welcome My Blog</a></h1></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        {% for articles in article_list %}
+       <div class="bodydiv">
+      <table width="581" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td width="45" rowspan="2" class="wenzhangid">>>&nbsp;&nbsp;</td>
+          <td width="536" class="title"><em><a href="{% url 'weibo:boke' articles.id %}">{{ articles.title }}</a></em></td>
+        </tr>
+        <tr>
+          <td><span class="fubiaoti">{{ articles.subtitle }}<span class="shijian">{{ articles.last_time }}</span></td>
+        </tr>
+
+      </table>
+	  <hr align="left" width="100%" />
+	  </div>
+        {% endfor %}
+        {{ password }}{{ egan_password }}
+
+      <ul class="out">
+      {% if article_list.has_previous %}
+        <li>
+          <a href="?num{{ article_list.previous_page_number }}">
+            返回上一页
+          </a>
+          &nbsp;&nbsp;&nbsp;
+        </li>
+      {% endif %}
+
+      {% for num1 in article_list.paginator.page_range %}
+            <li><a href="?num={{ num1 }}">{{ num1 }}</a> 
+              &nbsp;&nbsp;&nbsp;
+      {% endfor %}
+
+    </ul>
+      </div>
+      {% endblock %}
+      <div class="sidebar">
+        <div class="gadget">
+          <span class="title">网站源码链接：</span>
+          <br></br>
+          <ul class="sb_menu">   
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="gadget">
+          <span class="title">资源链接：</span>
+          <p></p>
+          <ul class="ex_menu">
+            <li><a href="http://www.cssmoban.com" title="网站模板">网站模板</a><br/>网站的前台页面可从这里下载</li>
+            <li><a href="http://python.usyiyi.cn/documents/django_182/index.html" title="WordPress Themes">Djdango中文文档</a><br />Django的1.8.2的中文文档，有点老了</li>
+            <li><a href="http://www.cnblogs.com/air-of-code/p/6015590.html" title="Affordable Hosting">windows命令行</a><br />windows命令行常用的100个命令</li>
+            <li><a href="https://segmentfault.com/a/1190000002399134" title="Stock Photos">Django底层原理</a><br />主要讲解Django框架的实现</li>
+            <li><a href="http://www.w3school.com.cn/" title="Website Builder">前台页面制作</a><br />有那个标签忘了可以在这里查找</li>
+            <li><a href="https://www.zmrenwu.com/post/20/" title="Stock Icons">Nginx部署Django</a><br />主要讲解在云服务器利用Nginx部署网站</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+        <h2>Image Galley</h2>
+        <img src="{% static "images/pix1.jpg" %}" width="58" height="58" alt="pix" />
+        <img src="{% static "images/pix2.jpg" %}" width="58" height="58" alt="pix" />
+        <img src="{% static "images/pix3.jpg" %}" width="58" height="58" alt="pix" />
+        <img src="{% static "images/pix4.jpg" %}" width="58" height="58" alt="pix" />
+        <img src="{% static "images/pix5.jpg" %}" width="58" height="58" alt="pix" />
+        <img src="{% static "images/pix6.jpg" %}" width="58" height="58" alt="pix" />
+      </div>
+      <div class="col c2">
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor<br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. <a href="#">Morbi tincidunt, orci ac convallis aliquam</a>, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam.</p>
+      </div>
+      <div class="col c3">
+        <h2>About</h2>
+       <img src="{% static "images/white.jpg" %}" width="66" height="66" alt="pix" />
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. llorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum. <a href="#">Learn more...</a></p>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright MyWebSite. Designed from </p>
+      <ul class="fmenu">
+        <li class="active"><a href="{% url 'weibo:queryset' %}">主页</a></li>
+        <li><a href="{% url 'weibo:denglu' %}">登录</a></li>
+        <li><a href="{% url 'weibo:we' %}">关于本网站</a></li>
+        <li><a href="{% url 'weibo:liuyan' %}">联系我们</a></li>
+      </ul>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

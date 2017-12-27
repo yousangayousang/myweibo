@@ -1,0 +1,73 @@
+{% extends "weibo/index.html" %}
+{% load staticfiles %}
+      {% block title %}
+      <ul>
+        <li><a href="{% url 'weibo:queryset' %}">主页</a></li>
+        <li><a href="{% url 'weibo:denglu' %}">登录</a></li>
+        <li><a href="{% url 'weibo:we' %}">关于本网站</a></li>
+        <li><a href="{% url 'weibo:liuyan' %}">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="clr"></div>
+  </div>
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"><h1><a href="index.html">Welcome My Blog</a></h1></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <p><span class="title">{{ boke.title }}</span> &nbsp;&nbsp;|&nbsp;&nbsp; {{ boke.subtitle }}</p>
+          <p>{{ boke.body }} </p>
+          
+          <p>点击量：{{ boke.views }} &nbsp;&nbsp;|&nbsp;&nbsp; &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#"><strong>点赞！</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ boke.created_time }}</p>
+        </div>
+        <div class="article">
+          <span class="title">有{{ number }}条评论</span>
+          <br></br>
+          {% for suggests in suggest_list %}
+          <div class="comment">
+            <a href="#"><img src="{% static "images/userpic.gif" %}" width="40" height="40" alt="user" class="userpic" /></a>
+            <p><a href="#">{{ suggests.user_name }}</a>评论于： <br />{{ suggests.review_time }}</p>
+            <p>{{ suggests.review }}</p>
+          </div>
+          {% endfor %}
+
+          <ul class="out">
+         {% if suggest_list.has_previous %}
+        <li>
+          <a href="?num{{ suggest_list.previous_page_number }}">
+            返回上一页
+          </a>
+          &nbsp;&nbsp;&nbsp;
+        </li>
+      {% endif %}
+
+      {% for num1 in suggest_list.paginator.page_range %}
+            <li><a href="?num={{ num1 }}">{{ num1 }}</a> 
+              &nbsp;&nbsp;&nbsp;
+        {% endfor %}
+
+    </ul>
+           
+        </div>
+        <div class="article">
+          <h2>文章留言：</h2>
+          <form action="{% url 'weibo:pinglun' boke.id %}" method="post">{% csrf_token %}
+          <ol><li>
+            {{ form.review.errors }}
+            {{ form.review.lable_tag }}
+            {{ form.review }}
+          </li><li>
+            <input type="submit" value="评论" />
+            <div class="clr"></div>
+          </li></ol>
+          </form>
+        </div>
+      </div>
+      {% endblock %}
+      

@@ -1,0 +1,38 @@
+{% extends "weibo/index.html" %}
+{% load staticfiles %}
+      {% block title %}
+      <ul>
+        <li><a href="{% url 'weibo:queryset' %}">主页</a></li>
+        <li><a href="{% url 'weibo:denglu' %}">登录</a></li>
+        <li class="active"><a href="{% url 'weibo:we' %}">关于本网站</a></li>
+        <li><a href="{% url 'weibo:liuyan' %}">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="clr"></div>
+  </div>
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"><h1><a href="index.html">Welcome My Blog</a></h1></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <span class='title'><strong>关于本网站</strong></span>
+          <p>1:网站采用python的django框架搭建的，现在依托于阿里云的服务器，也不贵，学生价9.9¥/月，网站模板是从网上下载的，网站源代码和模板网站都在右侧，可自行查看，建立这个网站的初衷也只是对这半年学习的总结</p>
+          <p>2:关于网页的域名问题，域名本来是liangwei.red，但是为啥不用呢？只能说网管局真扯淡，申请个域名还要备案，大概有20天左右的时间才能申请下来，所以有想建立网站的就先申请域名吧</p>
+          <p>3：网站现在实现的功能并不多，但是这寥寥的几个功能却让我费了不少功夫，上网查阅了不少资料与博客才实现,如果说我收获最大是啥，就是如何自行解决BUG的能力了</p>
+          <p>4:建站的过程中我遇到的问题的解决方案和经常查看的文档也贴在了右侧的，可以自行查看</p>
+        </div>
+        <div class="article">
+          <span class='title'><strong>关于以后</strong></span>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;网站并不会长期运行，估计过一两个月可能就下了，如果有机会我可能会添加些别的功能，比如用户的个人页面，头像上传功能，用户的个人空间，可以上传图片，文档，音乐什么的，并且网站的图片收藏功能可能也会加上，现在的网站还只是一个雏形，并且你有什么好的建议也可以提出来,建议我都会看到的</p>
+          <p></p>
+          <p>感谢你的访问！</p>
+        </div>
+      </div>
+      {% endblock %}
+      

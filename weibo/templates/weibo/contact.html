@@ -1,0 +1,55 @@
+{% extends "weibo/index.html" %}
+{% load staticfiles %}
+      {% block title %}
+      <ul>
+        <li><a href="{% url 'weibo:queryset' %}">主页</a></li>
+        <li><a href="{% url 'weibo:denglu' %}">登录</a></li>
+        <li><a href="{% url 'weibo:we' %}">关于本网站</a></li>
+        <li class="active"><a href="{% url 'weibo:liuyan' %}">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="clr"></div>
+  </div>
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"><h1><a href="index.html">Welcome My Blog</a></h1></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <h2>给我的建议：</h2>
+          <p>你的支持是我最大的动力，如果有那里做的不好，请留言告诉我。 </p>
+        </div>
+        <div class="article">
+          <h2>留言给我：</h2>
+          <form action="{% url 'weibo:liuyan1' %}" method="post">
+            {% csrf_token %}
+          <ol><li>
+           {{ form.name.errors }}
+           {{ form.name.label_tag }}
+           {{ form.name }}
+          </li><li>
+            {{ form.Suggest_email.errors }}
+            {{ form.Suggest_email.label_tag }}
+            {{ form.Suggest_email }}
+          </li><li>
+            {{ form.phone.errors }}
+            {{ form.phone.label_tag }}
+            {{ form.phone }}
+          </li><li>
+            {{ form.suggest.errors }}
+            {{ form.suggest.label_tag }}
+            {{ form.suggest }}
+          </li><li>
+            <input type="submit" value="发送" />
+            <div class="clr"></div>
+          </li></ol>
+          </form>
+        </div>
+      </div>
+      {% endblock %}
+      
