@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for myweibo project.
 
@@ -23,12 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'au706x*pt_vlmb#w6aaicyw5^fej%m!ti!x)jfr!1g7ya9-^3i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #开启调试
+DEBUG = False 
 
 ALLOWED_HOSTS = ['127.0.0.1','119.23.41.28', 'localhost ', '.liangwei.com']
 
 
-# 添加APP到该项目
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'weibo',
 ]
 
-#中间件
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -74,7 +73,6 @@ WSGI_APPLICATION = 'myweibo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-#数据库设置
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -109,9 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'zh-Hans'#admin设置为中文显示
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'Asia/Shanghai'#时区设置为中文
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -123,5 +121,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'#静态文件目录存放处
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
