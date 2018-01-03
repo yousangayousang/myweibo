@@ -11,7 +11,9 @@ html, .main { padding:0; margin:0; background-color:#dfdfdf;}
 .clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
 h1 { margin:0; padding:80px 0; color:#fff; font:normal 48px/1.2em Arial, Helvetica, sans-serif; text-align:center;}
 h1 a, h1 a:hover { color:#fff; text-decoration:none;}
-h2 { font:normal 24px Arial, Helvetica, sans-serif; color:#3e3e3e; padding:8px 0; margin:8px 0;}
+h2 { color:#000;font-size:32px;}
+h3{color:#000;font-size:20px;}
+h4{color:#000;font-size:20px;}
 p { margin:8px 0; padding:0 0 8px 0; font:normal 12px/1.8em Arial, Helvetica, sans-serif;}
 a { color:#2ca8b2; text-decoration:underline;}
 

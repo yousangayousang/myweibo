@@ -22,7 +22,7 @@
       <div class="mainbar">
         <div class="article">
           <p><span class="title">{{ boke.title }}</span> &nbsp;&nbsp;|&nbsp;&nbsp; {{ boke.subtitle }}</p>
-          <p>{{ boke.body }} </p>
+          <p>{{ boke.body|safe }} </p>
           
           <p>点击量：{{ boke.views }} &nbsp;&nbsp;|&nbsp;&nbsp; &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#"><strong>点赞！</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ boke.created_time }}</p>
         </div>

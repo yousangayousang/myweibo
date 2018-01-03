@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404,get_list_or_404,reverse
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User
+import markdown
 
 # Create your views here.
 
@@ -34,7 +35,12 @@ def boke(request,article_id):
 	suggest=Review.objects.filter(article_id=article_id)
 	number=len(suggest)
 	boke=get_object_or_404(Article,pk=article_id)
-
+	boke.body=markdown.markdown(boke.body,
+									extensions=[
+										'markdown.extensions.extra',
+										'markdown.extensions.codehilite',
+										'markdown.extensions.toc',
+									])
 	boke.views=boke.views+1
 	boke.save()
 	suggest_list=Paginator(suggest,3)
