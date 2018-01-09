@@ -26,7 +26,7 @@ SECRET_KEY = 'au706x*pt_vlmb#w6aaicyw5^fej%m!ti!x)jfr!1g7ya9-^3i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
-ALLOWED_HOSTS = ['127.0.0.1','119.23.41.28', 'localhost ', '.liangwei.com']
+ALLOWED_HOSTS = ['127.0.0.1','localhost ', '.liangwei.red']
 
 
 
